@@ -1,0 +1,138 @@
+/**
+ * copy from
+ * "./bootstrap/stylesheets/bootstrap/_variables.scss"
+ * and remove !default then change value
+ */
+
+/*=============================
+===============================
+Color Variables
+===============================
+=============================*/
+// Colors
+$brand-primary: #004284;
+$brand-secondary: #a8875c;
+$brand-tertiary: white;
+$brand-quaternary: black;
+
+$brand-colors: (
+        "blue": $brand-primary,
+        "brown": $brand-secondary,
+        "white": $brand-tertiary,
+        "black": $brand-quaternary,
+        "grey": #787575,
+);
+
+/*=============================
+===============================
+Override Variables
+===============================
+=============================*/
+// Typography
+$text-color:              map-get($brand-colors, "grey");
+$font-family-sans-serif:  'Roboto', sans-serif; // "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       'Open Sans', sans-serif; // Georgia, "Times New Roman", Times, serif !default;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base:        $font-family-sans-serif;
+
+
+$font-size-base:          18px;
+//$font-size-large:         ceil(($font-size-base * 1.25)); // ~18px
+//$font-size-small:         ceil(($font-size-base * 0.85)); // ~12px
+
+$font-size-h1:            floor(($font-size-base * 2));
+$font-size-h2:            floor(($font-size-base * 1.75));
+$font-size-h3:            ceil(($font-size-base * 1.25));
+$font-size-h4:            ceil(($font-size-base * 1.15));
+$font-size-h5:            $font-size-base;
+$font-size-h6:            ceil(($font-size-base * 0.75));
+
+//** Unit-less `line-height` for use in components like buttons.
+// $line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+// $line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
+
+$headings-font-family:    $font-family-serif;
+$headings-font-weight:    bold; // 500
+$headings-line-height:    1.1;
+$headings-color:          map-get($brand-colors, "blue");
+
+$font-size-small:         ceil(($font-size-base * 0.70));
+
+// Navbar
+$navbar-height:           85px;
+$navbar-margin-bottom:    0;
+$navbar-border-radius:    0;
+$navbar-default-bg:      map-get($brand-colors, "white");
+
+// Navbar links
+$navbar-default-link-color:                map-get($brand-colors, "blue");
+$navbar-default-link-hover-color:          map-get($brand-colors, "blue");
+$navbar-default-link-active-color:         map-get($brand-colors, "blue");
+$navbar-default-border:                    darken($navbar-default-bg, 12%);
+
+//** Background for the dropdown menu.
+$dropdown-bg:                    map-get($brand-colors, "white");
+//** Dropdown menu `border-color`.
+$dropdown-border:                map-get($brand-colors, "white");
+//** Dropdown menu `border-color` **for IE8**.
+$dropdown-fallback-border:       map-get($brand-colors, "white");
+//** Divider color for between dropdown items.
+$dropdown-divider-bg:            map-get($brand-colors, "grey");
+
+//** Dropdown link text color.
+$dropdown-link-color:            map-get($brand-colors, "grey");
+//** Hover color for dropdown links.
+$dropdown-link-hover-color:      map-get($brand-colors, "white");
+//** Hover background for dropdown links.
+$dropdown-link-hover-bg:         map-get($brand-colors, "grey");
+
+// Navbar toggle
+$navbar-default-toggle-icon-bar-bg:        map-get($brand-colors, "grey");
+$navbar-default-toggle-border-color:       map-get($brand-colors, "grey");
+
+
+//=== Inverted navbar
+// Reset inverted navbar basics
+// $navbar-inverse-color:                      white;
+// $navbar-inverse-bg:                         map-get($brand-colors, "grey");
+// $navbar-inverse-border:                     map-get($brand-colors, "grey");
+
+// Inverted navbar links
+// $navbar-inverse-link-color:                 white;
+// $navbar-inverse-link-hover-color:           white;
+// $navbar-inverse-link-hover-bg:              map-get($brand-colors, "grey");
+// $navbar-inverse-link-active-color:          white;
+
+// Inverted navbar toggle
+// $navbar-inverse-toggle-hover-bg:            white;
+// $navbar-inverse-toggle-icon-bar-bg:         white;
+// $navbar-inverse-toggle-border-color:        white;
+
+// Thumbnails
+$thumbnail-border: $brand-primary;
+
+$btn-border-radius-base: 0;
+
+/*=============================
+===============================
+Import bootstrap
+===============================
+=============================*/
+// Iconography bug fix
+$icon-font-path: 'assets/vendor/bootstrap/fonts/bootstrap/';
+@import 'bootstrap/stylesheets/bootstrap';
+
+/*=============================
+===============================
+Import Fontawesome
+===============================
+=============================*/
+// Iconography bug fix
+$fa-font-path: 'assets/vendor/fontawesome/webfonts';
+@import 'fontawesome/fontawesome';
+@import 'fontawesome/light';
+@import 'fontawesome/regular';
+@import 'fontawesome/solid';
+@import 'fontawesome/brands';

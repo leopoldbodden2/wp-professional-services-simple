@@ -1,0 +1,914 @@
+/*!
+Theme name: PropertyManagement
+Author: Example, LLC
+Version: 1.0.0
+Description: PropertyManagement - Website Redesign
+*/
+/*=============================
+===============================
+Variables
+===============================
+=============================*/
+@import 'assets/vendor/import';
+
+$imgpath: 'assets/images';
+/*======================
+========================
+GLOBAL
+========================
+======================*/
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.font-small {
+  font-size: 16px !important;
+}
+
+.cisp-gallery-preview {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@each $color, $value in $brand-colors {
+  .bg-#{$color} {
+    background-color: $value !important;
+  }
+
+  .text-#{$color} {
+    color: $value !important;
+  }
+
+  a.btn-#{$color},
+  .btn-#{$color} {
+    display: inline-block;
+    // @include button-variant($color, $background, $border);
+    @include button-variant(white, $value, $value);
+    border: 1px solid $value;
+    white-space: normal;
+  }
+}
+
+.text-white {
+  color: white !important;
+}
+
+ul.list-style-check {
+  list-style: none;
+  padding-left: 10px;
+  // For hanging indent
+  & > li {
+    padding-left: 20px;
+  }
+
+  & > li:before {
+    // glyphicon-ok
+    /*content: "\f00c";*/
+    /*font-family: 'Font Awesome 5 Free';*/
+    font-size: 15px;
+    position: absolute;
+    margin-left: -26px;
+    margin-top: 5px;
+    color: map-get($brand-colors, "blue");
+  }
+}
+
+ul.list-social-icons li {
+  padding: 0 10px;
+}
+
+textarea {
+  resize: vertical;
+  max-height: 400px;
+}
+
+.navbar-toggle {
+}
+
+.thumbnail .caption {
+  padding: 0;
+  color: map-get($brand-colors, "blue");
+  font-size: 14px;
+  line-height: 16px;
+  position: relative;
+  top: 0;
+}
+
+/*=============================
+===============================
+Navbar
+===============================
+=============================*/
+
+.navbar-inverse {
+  .navbar-text {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .navbar-nav > li > a,
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > a:visited,
+  .navbar-nav > li > a:focus {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.navbar-default {
+  .navbar-left {
+    padding-top: 10px;
+
+    img {
+      margin-right: 30px;
+      max-height: $navbar-height - 10px;
+    }
+  }
+
+  .navbar-nav > li > a,
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > a:visited,
+  .navbar-nav > li > a:focus {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    font-family: $font-family-serif;
+  }
+
+  .navbar-form {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+
+    .btn {
+      font-weight: normal;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      font-family: $font-family-sans-serif;
+    }
+  }
+
+  .navbar-nav > li > .dropdown-menu {
+    border-radius: 0;
+
+    li > a,
+    li > a:hover,
+    li > a:visited,
+    li > a:focus {
+
+    }
+  }
+}
+
+
+/*=============================
+===============================
+Header
+===============================
+=============================*/
+
+header {
+  background-color: map-get($brand-colors, "grey");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: auto 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  .widget-area img {
+    margin-bottom: 0;
+  }
+
+  .textwidget.custom-html-widget {
+
+    h1 {
+      font-size: 38px;
+      line-height: 50px;
+      color: map-get($brand-colors, "blue");
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 30px;
+      color: black;
+    }
+  }
+
+  /*
+   *  Reset to the following when
+   *  there is no secondary header
+   *
+   *	&.header-secondary{
+   *		background-image: none;
+   *		padding-top: 0;
+   *		padding-bottom: 0;
+   *	}
+   */
+  &.header-secondary {
+    background-image: url("#{$imgpath}/bg-header-secondary.jpg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: auto 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    min-height: 300px;
+
+    &.header-secondary {
+      .widget-area {
+        padding-top: 90px;
+      }
+    }
+  }
+}
+
+/*=============================
+===============================
+Main
+===============================
+=============================*/
+
+main {
+  .container {
+    padding: 50px 0;
+  }
+
+  h1:first-of-type {
+    margin-top: 0;
+  }
+
+  h2 {
+    margin: 15px 0 0 0;
+  }
+
+  h3 {
+    margin: 10px 0;
+  }
+
+  p {
+  }
+
+  a,
+  a:focus,
+  a:hover,
+  a:visited {
+    color: map-get($brand-colors, "blue");
+  }
+
+  a:hover {
+    color: map-get($brand-colors, "grey");
+  }
+
+  img,
+  img.aligncenter,
+  img.alignleft,
+  img.alignnone,
+  img.alignright {
+    max-width: 100%;
+  }
+
+  .thumbnail {
+    max-width: 250px;
+    border: none;
+    position: relative;
+    top: 6px;
+    margin: 0 15px 15px 0;
+    padding: 0;
+  }
+
+  table {
+    max-width: 100%;
+  }
+
+  ol,
+  ul {
+    padding-left: 30px;
+  }
+
+  ol li,
+  ul li {
+    margin-bottom: 5px;
+  }
+
+  hr {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+  }
+}
+
+#front-page-main {
+  ul {
+    font-family: $font-family-serif;
+    font-weight: bold;
+  }
+  .btn {
+    font-family: $font-family-serif;
+
+    h3 {
+      font-size: 37px;
+    }
+
+    p {
+      font-family: $font-family-sans-serif;
+      font-size: 20px;
+    }
+  }
+}
+/*=============================
+===============================
+Sidebar
+===============================
+=============================*/
+
+#sidebar {
+
+  h1:first-of-type {
+    text-align: left;
+    margin: 0 0 10px 0;
+  }
+}
+
+/*=============================
+===============================
+Contact
+===============================
+=============================*/
+#contactform_section {;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-right: ($grid-gutter-width / -2);
+  margin-left: ($grid-gutter-width / -2);
+
+  h1 {
+    margin: 25px 0;
+    text-align: center;
+    color: map-get($brand-colors, "black");
+    text-shadow: 0 0 15px map-get($brand-colors, "blue");
+  }
+}
+
+#contactform_container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px 15px 5px 15px;
+  word-wrap: break-word;
+  margin-bottom: 50px;
+  box-shadow: 0 0 10px #000;
+
+  h2 {
+    font-family: $font-family-sans-serif;
+  }
+
+  h3 {
+    display: none;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  legend {
+    color: map-get($brand-colors, "blue");
+    margin-bottom: 10px;
+    font-family: $font-family-sans-serif;
+    font-weight: bold;
+  }
+
+  label {
+    color: map-get($brand-colors, "grey");
+  }
+
+  input {
+    background: rgba(255, 255, 255, .85);
+    border: 1px solid map-get($brand-colors, "blue");
+  }
+
+  .checkbox {
+    label {
+      padding: 0 5px;
+    }
+    input {
+      background: rgba(255, 255, 255, .85);
+      border: 1px solid map-get($brand-colors, "blue");
+      border-radius: 0;
+
+    }
+  }
+
+  .form-control {
+    border-radius: 0;
+  }
+
+  textarea {
+    height: 137px;
+    max-height: 150px;
+    background: rgba(255, 255, 255, .85);
+    border: 1px solid map-get($brand-colors, "blue");
+  }
+
+  .btn-contact-submit {
+    color: white;
+    background: map-get($brand-colors, "blue");
+    border: 1px solid map-get($brand-colors, "blue");
+    border-radius: 0;
+    width: 100%;
+    padding: 10px 15px;
+    margin: 0;
+    box-shadow: 0 0 10px map-get($brand-colors, "blue");
+  }
+
+  .btn-contact-submit:hover {
+    color: map-get($brand-colors, "grey");
+  }
+}
+
+/*=============================
+===============================
+Flex Stripe
+===============================
+=============================*/
+.flex-stripe {
+  display: flex;
+  flex-flow: wrap;
+
+  .flex-stripe-btn-group,
+  .flex-stripe-img,
+  .flex-stripe-text-col {
+    flex: 1;
+  }
+
+  .flex-stripe-text-col {
+    display: flex;
+    background: #fff;
+    align-items: center;
+
+    .flex-stripe-text {
+      flex: 1;
+      padding: 50px 30px;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 28px;
+        line-height: 28px;
+      }
+
+      p,
+      ul li,
+      ol li {
+        margin-bottom: 10px;
+        line-height: 24px;
+        font-weight: 300;
+
+        strong {
+          font-weight: normal;
+        }
+
+        a,
+        a:visited,
+        a:hover,
+        a:focus {
+          color: map-get($brand-colors, 'blue');
+        }
+      }
+    }
+  }
+
+  .flex-stripe-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .flex-stripe-center-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+//#service-stripe-1 .flex-stripe-img {
+//  background-image: url('#{$imgpath}/services/');
+//  background-position: left center;
+//}
+
+
+#service-stripe-1,
+#service-stripe-2,
+#service-stripe-3 {
+  ul {
+    list-style: none; /* Remove default bullets */
+  }
+
+  ul li::before {
+    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: map-get($brand-colors, "blue"); /* Change the color */
+    // font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+
+}
+
+/*=============================
+===============================
+Testimonials
+===============================
+=============================*/
+#testimonials {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-color: map-get($brand-colors, "grey");
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+
+  blockquote {
+    border: none;
+  }
+
+  //
+  .carousel {
+    position: relative;
+  }
+
+  .carousel:before {
+    content: ' ';
+    background: url('#{$imgpath}/quote-mark.png') center center no-repeat;
+    height: 52px;
+    width: 63px;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .carousel:after {
+    content: ' ';
+    background: url('#{$imgpath}/quote-mark.png') center center no-repeat;
+    transform: scale(-1, -1);
+    height: 52px;
+    width: 63px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+
+  p {
+    color: #ffffff;
+
+    strong {
+      font-size: smaller;
+      font-weight: normal;
+    }
+  }
+
+  a,
+  a:visited,
+  a:hover,
+  a:focus {
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  .carousel-indicators {
+    bottom: -30px;
+  }
+
+  .carousel-inner {
+    // height: 270px;
+  }
+}
+
+/*=============================
+===============================
+Callouts
+===============================
+=============================*/
+.callout {
+  background-color: rgba(map-get($brand-colors,"grey"), .2);
+  display: inline-block;
+
+  h3 {
+    color: map-get($brand-colors, "brown");
+    font-family: $font-family-sans-serif;
+    font-size: 28px;
+  }
+  p {
+    color: $text-color;
+    font-family: $font-family-sans-serif;
+  }
+}
+#callouts {
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  .callout {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  p {
+  }
+
+  a {
+    display: block;
+    padding: 15px 30px;
+  }
+}
+
+/*=============================
+===============================
+Footer
+===============================
+=============================*/
+
+footer {
+  background-image: url('#{$imgpath}/bg-footer.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  word-wrap: break-word;
+
+  h2 {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0 0 0 0;
+    color: map-get($brand-colors, "white");
+    font-family: $font-family-sans-serif;
+    font-weight: bold;
+  }
+
+  p,
+  li {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0 0 0 0;
+    color: map-get($brand-colors, "white");
+
+    small {
+    }
+  }
+
+  a,
+  a:focus,
+  a:hover,
+  a:visited {
+    color: map-get($brand-colors, "white");
+    text-decoration: none;
+  }
+
+  ul.list-social-icons li a {
+    color: map-get($brand-colors, "white");
+  }
+
+  nav {
+    h4 {
+      font-size: 20px;
+      line-height: 30px;
+      margin: 0 0 15px 0;
+      font-family: $font-family-sans-serif;
+    }
+
+    li > a,
+    li > a:focus,
+    li > a:hover,
+    li > a:visited {
+      font-size: 20px;
+      line-height: 30px;
+      color: map-get($brand-colors, "blue");
+      text-decoration: none;
+    }
+  }
+
+  #footer-left,
+  #footer-center,
+  #footer-right {
+    margin-bottom: 20px;
+  }
+}
+
+/*=============================
+===============================
+Responsive
+===============================
+=============================*/
+// 768px <
+@media (min-width: $screen-sm) {
+  .navbar-default {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .container-fluid {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    #logo {
+      img {
+        margin-right: 5px;
+        max-width: 325px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      .navbar-nav > li > a,
+      .navbar-nav > li > a:hover,
+      .navbar-nav > li > a:visited,
+      .navbar-nav > li > a:focus {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+  }
+}
+
+// 992px <
+@media (min-width: $screen-md) {
+  .navbar-default {
+    #logo {
+      img {
+        margin-right: 5px;
+        max-width: 325px;
+      }
+    }
+  }
+  header {
+    background-position: left center;
+
+    .widget-area {
+      img {
+        margin-right: 50px;
+      }
+    }
+
+    &.header-secondary {
+      background-position: left center;
+    }
+  }
+}
+
+// 1200px <
+@media (min-width: $screen-lg) {
+  .navbar-default {
+    #logo {
+      img {
+        margin-right: 5px;
+        max-width: 340px;
+      }
+    }
+  }
+
+  header {
+    background-position: center bottom;
+
+    .widget-area {
+      img {
+        margin-right: 250px;
+      }
+    }
+
+    &.header-secondary {
+      background-position: center bottom;
+    }
+  }
+}
+
+@media (min-width: 1500px) {
+  .navbar-default {
+    #logo {
+      img {
+        margin-right: 30px;
+        max-width: 500px;
+      }
+    }
+  }
+}
+
+// < 1199px
+@media (max-width: $screen-md-max) {
+
+}
+
+// < 991px
+@media (max-width: $screen-sm-max) {
+  .flex-stripe {
+    flex-direction: column;
+
+    .flex-stripe-img {
+      min-height: 350px
+    }
+  }
+}
+
+// < 767px
+@media (max-width: $screen-sm-min) {
+  // MAIN CONTENT
+  main {
+    .container {
+      padding: 25px 0;
+    }
+  }
+  // SIDEBAR
+  #sidebar {
+    margin-top: 15px;
+  }
+  // CONTACT
+  #contact-us .checkbox {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #contact-us .checkbox input {
+    margin-top: 7px;
+  }
+  footer {
+    #footer-left,
+    #footer-center,
+    #footer-right {
+      text-align: center !important;
+    }
+  }
+}
+
+// < 500px
+@media (max-width: $screen-xs) {
+
+}
+
+/*======================
+========================
+WORDPRESS - DO NOT ALTER - DO NOT DELETE - KEEP AT BOTTOM
+========================
+======================*/
+
+.aligncenter,
+div.aligncenter,
+img.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignright {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+
+.alignleft {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.wp-caption {
+  border: none;
+  text-align: center;
+  padding-top: 5px;
+  margin: 10px;
+}
+
+.wp-caption img {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #19bdc5;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.wp-caption p.wp-caption-text {
+  font-size: 20px;
+  line-height: 28px;
+  padding: 0 5px;
+  margin: 0;
+  color: #19bdc5;
+}
